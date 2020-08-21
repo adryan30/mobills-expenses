@@ -8,6 +8,7 @@ import { CircularProgress } from "@material-ui/core";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { RootState } from "./store/reducers";
+import DefaultLayout from "./layouts/DefaultLayout";
 
 function AuthIsLoaded({ children }: { children: React.ReactNode }) {
   const auth = useSelector<RootState>((state) => state.firebase.auth);
@@ -53,7 +54,7 @@ function PrivateRoute({
       {...rest}
       render={({ location }) =>
         isLoaded(auth) && !isEmpty(auth) ? (
-          children
+          <DefaultLayout>{children}</DefaultLayout>
         ) : (
           <Redirect
             to={{
