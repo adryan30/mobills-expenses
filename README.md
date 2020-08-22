@@ -1,44 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MobillsExpenses <!-- omit in toc -->
 
-## Available Scripts
+<div align="center">
 
-In the project directory, you can run:
+## Sua gerenciador de contas a pagar pessoal <!-- omit in toc -->
 
-### `yarn start`
+</div>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Tabela de Conteúdos <!-- omit in toc -->
 
-### `yarn test`
+- [Tecnologias](#tecnologias)
+- [Rodando o projeto](#rodando-o-projeto)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Instalação](#instalação)
+- [Contato](#contato)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- ABOUT THE PROJECT -->
 
-### `yarn build`
+## Tecnologias
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Tecnologias que me ajudaram a trazer esse projeto à realidade:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [React](https://pt-br.reactjs.org/)
+- [Material-UI](https://ant.design/)
+- [Formik](https://formik.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Firebase](https://firebase.google.com/)
+- [React-Redux-Firebase](http://react-redux-firebase.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
 
-### `yarn eject`
+## Rodando o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Pré-requisitos
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+É necessario ter instalado:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [Node.js](https://nodejs.org/)
+- NPM ([Yarn v1](https://classic.yarnpkg.com/lang/en/) recomendado)
+- [Git](https://git-scm.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Instalação
 
-## Learn More
+1. Clone o repositório
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+git clone https://github.com/adryan30/mesha.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Instale os pacotes NPM
+
+```sh
+# Via NPM
+npm install
+
+# Via yarn (recomendado)
+yarn install
+```
+
+4. Execute o comando parar abrir o **_app_**.
+
+```sh
+# Para executar a aplicação
+yarn start 
+```
+
+5. Abra a aplicação no navegador
+```
+A aplicação ficará disponível em localhost:3000
+(Caso não estejam disponíveis nestas portas, consulte seu console)
+``` 
+
+
+<!-- CONTACT -->
+
+## Contato
+
+**Adryan Almeida**
+
+[![Gmail][gmail-shield]][gmail-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+Link do projeto: [https://github.com/adryan30/mobills-expenses](https://github.com/adryan30/mobills-expenses)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[gmail-shield]: https://img.shields.io/badge/email-red?logo=gmail&style=for-the-badge&colorB=555
+[gmail-url]: mailto:adryan.software@gmail.com
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/adryanalmeida
+[product-screenshot]: ./assets/landing.png
