@@ -47,7 +47,6 @@ const EditDialog: React.FC<EditDialogProps> = ({
   const classes = useStyles();
   const firestore = useFirestore();
   const checkboxLabel = collection === "expenses" ? "Pago?" : "Recebido?";
-  console.log(initialValues);
 
   return (
     <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
