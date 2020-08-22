@@ -1,15 +1,17 @@
-export interface Expense {
+import * as firebase from "firebase";
+
+export interface FirestoreModel {
+  id: string;
   value: number;
   description: string;
-  date: Date;
+  date: firebase.firestore.Timestamp;
   paid: boolean;
   userId: string;
 }
 
-export interface Revenue {
-  value: number;
+export interface FormValues {
   description: string;
-  date: Date;
+  value: number;
+  type: "expenses" | "revenues";
   paid: boolean;
-  userId: string;
 }

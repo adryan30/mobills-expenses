@@ -17,10 +17,11 @@ const Login: React.FC = () => {
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
           ],
           siteName: "MobilisExpenses",
+          signInSuccessUrl: "/",
           callbacks: {
             signInSuccessWithAuthResult: () => {
               history.push("/");
-              return false;
+              return true;
             },
           },
         }}

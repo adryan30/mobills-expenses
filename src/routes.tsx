@@ -7,6 +7,8 @@ import { CircularProgress } from "@material-ui/core";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import CollectionCrud from "./pages/CollectionCrud";
+
 import { RootState } from "./store/reducers";
 import DefaultLayout from "./layouts/DefaultLayout";
 
@@ -30,10 +32,13 @@ const Routes: React.FC = () => {
   return (
     <AuthIsLoaded>
       <Switch>
+        <Route path="/login" component={Login} />
         <PrivateRoute path="/" exact>
           <Home />
         </PrivateRoute>
-        <Route path="/login" component={Login} exact />
+        <PrivateRoute path="/:collection">
+          <CollectionCrud />
+        </PrivateRoute>
       </Switch>
     </AuthIsLoaded>
   );
@@ -45,7 +50,7 @@ function PrivateRoute({
 }: {
   children: React.ReactNode;
   path: string;
-  exact: boolean;
+  exact?: boolean;
 }) {
   const auth = useSelector<RootState>((state) => state.firebase.auth);
 
