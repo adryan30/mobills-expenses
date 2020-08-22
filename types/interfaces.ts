@@ -11,7 +11,7 @@ export interface FirestoreModel {
 
 export interface FormValues {
   description: string;
-  value: number;
-  type: "expenses" | "revenues";
+  value: string;
+  type: string;
   paid: boolean;
 }

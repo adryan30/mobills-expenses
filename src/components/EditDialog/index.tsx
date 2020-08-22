@@ -61,10 +61,19 @@ const EditDialog: React.FC<EditDialogProps> = ({
             }}
             validate={(values) => {
               const errors: Partial<FormValues> = {};
-
+              if (!values.description) {
+                errors.description = "Descrição é obrigatória";
+              }
+              if (!values.value) {
+                errors.value = "Valor é obrigatório";
+              }
+              if (!values.date) {
+                errors.value = "Data é obrigatória";
+              }
               return errors;
             }}
             onSubmit={async (values, { setSubmitting }) => {
+              setSubmitting(true);
               await firestore
                 .collection(collection)
                 .doc(initialValues.id)
@@ -76,6 +85,7 @@ const EditDialog: React.FC<EditDialogProps> = ({
                   paid: values.paid,
                 })
                 .then(() => switchDialog());
+              setSubmitting(false);
             }}
           >
             {({ submitForm, isSubmitting }) => (

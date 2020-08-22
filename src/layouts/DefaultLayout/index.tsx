@@ -46,7 +46,7 @@ import { DatePicker } from "formik-material-ui-pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
 import { RootState } from "../../store/reducers";
-import { FormValues } from "../../../types/interfaces";
+import { FormValues as FormFields } from "../../../types/interfaces";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: 10,
     },
     fab: {
-      position: "absolute",
+      position: "fixed",
       bottom: 20,
       right: 20,
     },
@@ -98,15 +98,10 @@ const DefaultLayout: React.FC = ({ children }) => {
   const handleClose = () => setAnchorEl(null);
   const handleCheckboxLabelChange = (event: any) => {
     const value = event.target.value;
-    switch (value) {
-      case "expenses":
-        setCheckboxLabel("Pago?");
-        break;
-      case "revenues":
-        setCheckboxLabel("Recebido?");
-        break;
-      default:
-        break;
+    if (value === "expenses") {
+      setCheckboxLabel("Pago?");
+    } else {
+      setCheckboxLabel("Recebido?");
     }
     setSelectValue(value);
   };
@@ -230,18 +225,27 @@ const DefaultLayout: React.FC = ({ children }) => {
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Formik
               initialValues={{
-                description: "",
-                type: "",
-                value: 0,
+                description: null,
+                type: null,
+                value: null,
                 date: new Date(),
                 paid: false,
               }}
               validate={(values) => {
-                const errors: Partial<FormValues> = {};
-
+                const errors: Partial<FormFields> = {};
+                if (!values.description) {
+                  errors.description = "Descrição é obrigatória";
+                }
+                if (!values.value) {
+                  errors.value = "Valor é obrigatório";
+                }
+                if (!selectValue) {
+                  errors.type = "Tipo é obrigatório";
+                }
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
+                setSubmitting(true);
                 await firestore
                   .collection(selectValue)
                   .add({
@@ -252,6 +256,7 @@ const DefaultLayout: React.FC = ({ children }) => {
                     paid: values.paid,
                   })
                   .then(() => switchDialog());
+                setSubmitting(false);
               }}
             >
               {({ submitForm, isSubmitting }) => (
