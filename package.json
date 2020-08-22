@@ -59,6 +59,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.2",
+    "firebase-tools": "^8.9.0",
     "redux-devtools-extension": "^2.13.8"
   }
 }
